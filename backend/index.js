@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import databaseConnect from './utils/db.js';
+import userRoutes from './routes/userRoute.js';
 
 dotenv.config();
 
@@ -27,6 +28,12 @@ app.get('/', (req, res) => {
 
 // connect to database and then start server
 const PORT = process.env.PORT || 5000;
+
+
+
+// api'
+
+app.use('/api/users', userRoutes);
 
 const startServer = async () => {
   try {
